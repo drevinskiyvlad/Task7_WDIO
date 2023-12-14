@@ -1,0 +1,10 @@
+{
+  "user1": {
+      "valid_username": "Katharina_Bernier",
+      "valid_password": "s3cret"
+    },
+  "user2": {
+      "valid_username": "Tavares_Barrows",
+      "valid_password": "s3cret"
+    }
+}
