@@ -1,0 +1,38 @@
+name: Test Cypress Real World App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Clone Repository
+        uses: actions/checkout@v2
+        with:
+          repository: cypress-io/cypress-realworld-app
+          ref: main
+          path: ./cloned-repo
+
+      - name: Install Dependencies and Run Dev Server
+        run: |
+          cd cloned-repo
+          yarn install
+          yarn dev
+
+      - name: Install Dependencies and Run Tests
+        run: |
+          npm install
+          npm run test
+          npm run report:generate
+
+      - name: Deploy Results to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: allure-report/
