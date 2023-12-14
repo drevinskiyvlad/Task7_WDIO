@@ -23,7 +23,7 @@ jobs:
         run: |
           cd cloned-repo
           yarn install
-          yarn dev
+          yarn dev & sleep 40 && curl http://localhost:3000
 
       - name: Install Dependencies and Run Tests
         run: |
