@@ -42,7 +42,8 @@ jobs:
       - name: Install Dependencies and Run Tests
         run: |
           npm install
-          npm run test &> test_output.txt
+          npm run test
+          npm run report:generate
 
       - name: Deploy Results to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
