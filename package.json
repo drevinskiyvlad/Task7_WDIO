@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio run ./wdio.conf.js",
+    "test:headless": "wdio run configs/wdio.headless.conf.js",
     "test:firefox": "wdio run configs/wdio.firefox.conf.js",
     "test:edge": "wdio run configs/wdio.edge.conf.js",
     "test:suite:login": "wdio run ./wdio.conf.js --suite login",
