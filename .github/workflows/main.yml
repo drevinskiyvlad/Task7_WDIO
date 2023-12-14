@@ -23,11 +23,7 @@ jobs:
         run: |
           cd cloned-repo
           yarn install
-          yarn dev & sleep 40 && curl http://localhost:3000
-
-      - name: Install ChromeDriver
-        run: |
-          run: sudo apt-get install chromium-browser
+          yarn dev & sleep 15 && curl http://localhost:3000
 
       - name: Install Dependencies and Run Tests
         run: |
