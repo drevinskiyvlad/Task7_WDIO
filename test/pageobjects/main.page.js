@@ -9,7 +9,7 @@ class MainPage extends Page {
         return $('h6[data-test=\'sidenav-username\']');
     }
 
-    async clickFirstTransaction(description) {
+    async clickFirstTransaction() {
         return $('div[role=\'rowgroup\'] div:nth-child(1) li:nth-child(1)').click();
     }
 
