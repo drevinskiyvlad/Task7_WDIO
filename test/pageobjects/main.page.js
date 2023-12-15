@@ -1,5 +1,6 @@
 const Page = require('./page');
 const LoginPage = require('./login.page');
+
 class MainPage extends Page {
     get transactionList() {
         return $('div[data-test=\'transaction-list\']')
@@ -7,6 +8,22 @@ class MainPage extends Page {
 
     get userTag() {
         return $('h6[data-test=\'sidenav-username\']');
+    }
+
+    get logoutBtn() {
+        return $('div[data-test*=\'signout\']');
+    }
+
+    get myAccountBtn() {
+        return $('a[data-test*=\'settings\']');
+    }
+
+    get bankAccountsBtn() {
+        return $('a[data-test*=\'bank\']');
+    }
+
+    get newTransactionBtn() {
+        return $('a[data-test*=\'new-transaction\']');
     }
 
     async clickFirstTransaction() {
@@ -19,19 +36,19 @@ class MainPage extends Page {
     }
 
     clickLogoutBtn() {
-        return $('div[class=\'MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\']').click();
+        return this.logoutBtn.click();
     }
 
     clickMyAccountBtn() {
-        return $('div[class=\'MuiDrawer-root MuiDrawer-docked\'] a:nth-child(2)').click();
+        return this.myAccountBtn.click();
     }
 
     clickBankAccountsBtn() {
-        return $('div[class=\'MuiDrawer-root MuiDrawer-docked\'] a:nth-child(3)').click();
+        return this.bankAccountsBtn.click();
     }
 
     clickNewTransactionBtn() {
-        return $('a[data-test="nav-top-new-transaction"]').click();
+        return this.newTransactionBtn.click();
     }
 
     async navigate(username, password) {
@@ -40,7 +57,7 @@ class MainPage extends Page {
         await LoginPage.login(username, password);
     }
 
-    async open(){
+    async open() {
         await super.open('/');
     }
 

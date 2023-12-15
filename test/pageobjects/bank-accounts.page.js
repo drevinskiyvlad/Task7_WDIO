@@ -4,7 +4,7 @@ const MainPage = require("./main.page");
 class BankAccountPage extends Page {
 
     get createBankAccountBtn() {
-        return $('.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-containedSizeLarge.MuiButton-sizeLarge')
+        return $('a[data-test=\'bankaccount-new\']')
     }
 
     BankAccountName(bankName) {

@@ -20,4 +20,11 @@ module.exports = class Page {
             return state === 'complete';
         });
     }
+
+    async clearInputValue(selector) {
+        const valueLength = (await selector.getValue()).length;
+        for (let i = 0; i < valueLength; i++) {
+            await selector.addValue('\uE003');
+        }
+    }
 }

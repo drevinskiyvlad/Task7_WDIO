@@ -13,6 +13,10 @@ class LoginPage extends Page {
         return $('#password')
     }
 
+    get registrationLink() {
+        return $('a[data-test=\'signup\']')
+    }
+
     get invalidUsernameAlert() {
         return $('#username-helper-text')
     }
@@ -26,7 +30,7 @@ class LoginPage extends Page {
     }
 
     clickRegistrationLink() {
-        return $('div[class=\'MuiGrid-root MuiGrid-item\']').click();
+        return this.registrationLink.click();
     }
 
     async login(username, password) {

@@ -19,7 +19,7 @@ describe('Transaction', async () => {
         await browser.reloadSession();
     });
 
-    it.skip('Create request transaction' , async () => {
+    it('Create request transaction', async () => {
         const amount = Faker.generateRandomNumberString(2);
         const description = Faker.generateRandomString(6);
 
@@ -30,7 +30,7 @@ describe('Transaction', async () => {
         await expect(TransactionPage.transactionText).toHaveText(`Requested $${amount}.00 for ${description}`);
     });
 
-    it.skip('Create pay transaction' , async () => {
+    it('Create pay transaction', async () => {
         const amount = Faker.generateRandomNumberString(2);
         const description = Faker.generateRandomString(6);
 
@@ -41,7 +41,7 @@ describe('Transaction', async () => {
         await expect(TransactionPage.transactionText).toHaveText(`Paid $${amount}.00 for ${description}`);
     });
 
-    it.skip('Create transaction with empty fields' , async () => {
+    it('Create transaction with empty fields', async () => {
         await TransactionPage.firstUser.click();
         await TransactionPage.clickCreatePayTransactionBtn();
 
@@ -49,7 +49,7 @@ describe('Transaction', async () => {
         await expect(TransactionPage.invalidAmountAlert).toHaveText(TransactionPage.emptyAmountAlertMessage);
     });
 
-    it('Accept request transaction' , async () => {
+    it('Accept request transaction', async () => {
         const amount = Faker.generateRandomNumberString(2);
         const description = Faker.generateRandomString(6);
         const validUser2Username = Data.user2.valid_username;
@@ -72,7 +72,7 @@ describe('Transaction', async () => {
         await expect(TransactionPage.transactionAction).toHaveText('charged');
     });
 
-    it('Reject request transaction' , async () => {
+    it('Reject request transaction', async () => {
         const amount = Faker.generateRandomNumberString(2);
         const description = Faker.generateRandomString(6);
         const validUser2Username = Data.user2.valid_username;
@@ -95,7 +95,7 @@ describe('Transaction', async () => {
         await expect(TransactionPage.transactionAction).toHaveText('requested');
     });
 
-    it('Like transaction' , async () => {
+    it('Like transaction', async () => {
         await MainPage.open();
         await MainPage.verify();
 

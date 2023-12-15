@@ -45,34 +45,27 @@ class SettingsPage extends Page {
     }
 
     async setFirstName(value) {
-        await this.clearValue(this.firstNameInput);
+        await super.clearInputValue(this.firstNameInput);
         await this.firstNameInput.setValue(value);
     }
 
     async setLastName(value) {
-        await this.clearValue(this.lastNameInput);
+        await super.clearInputValue(this.lastNameInput);
         await this.lastNameInput.setValue(value);
     }
 
     async setEmail(value) {
-        await this.clearValue(this.emailInput);
+        await super.clearInputValue(this.emailInput);
         await this.emailInput.setValue(value);
     }
 
     async setPhoneNumber(value) {
-        await this.clearValue(this.phoneNumberInput);
+        await this.clearInputValue(this.phoneNumberInput);
         await $('#user-settings-phoneNumber-input').setValue(value);
     }
 
     clickSubmitBtn() {
         return $('button[type=\'submit\']').click();
-    }
-
-    async clearValue(selector) {
-        const valueLength = (await selector.getValue()).length;
-        for (let i = 0; i < valueLength; i++) {
-            await selector.addValue('\uE003');
-        }
     }
 
     async navigate(username, password) {
