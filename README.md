@@ -10,7 +10,7 @@ Ensure you have the following prerequisites installed before running the tests:
 
 - Node.js (v18 or higher)
 - npm (Node Package Manager)
-- yarn v1.22.21 or higher
+- yarn v1.22.22 or higher
 
 ## Steps to Install
 
